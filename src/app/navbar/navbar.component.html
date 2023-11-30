@@ -1,0 +1,10 @@
+<div class="main_canva">
+    <div class="sub_canva">
+        <div class="canva_button">
+            <img src="../../assets/arrow-left-circle.svg" (click)="goToleft()">
+            <span>{{current_day}}</span>
+            <img src="./../assets/arrow-right-circle.svg" (click)="goToRight()"
+                [ngClass]="{'hidden': isToday(), 'show': !isToday()}">
+        </div>
+    </div>
+</div>

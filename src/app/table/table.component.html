@@ -1,0 +1,63 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2">Status</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>buscar a meta de 95%</th>
+            <th>hoje</th>
+            <th>amanhã</th>
+            <th>qualidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of myData; let i = index">
+            <td id="nome-column">{{item.nome}}</td>
+
+            <td *ngIf="Iedit.index !== i || Iedit.field !== 'stt_hoje'" (click)="editModeOn(i, 'stt_hoje', item)">
+                <div class="normal_row">
+                    <span>{{item.stt_hoje}}</span>
+                </div>
+            </td>
+            <td *ngIf="i === Iedit.index && 'stt_hoje' === Iedit.field">
+                <div class="internal">
+                    <select [(ngModel)]="Ivalues.stt_hoje">
+                        <option value="" disabled></option>
+                        <option [value]="motivo.abrev" *ngFor="let motivo of motivos">{{motivo.abrev}}</option>
+                    </select>
+                    <img src="../../assets/check2.svg" alt="" (click)="saveChanges(item)">
+                </div>
+            </td>
+
+            <!--segundo-->
+            <td *ngIf="Iedit.index !== i || Iedit.field !== 'stt_amanha'" (click)="editModeOn(i, 'stt_amanha', item)">
+                <div class="normal_row">
+                    <span>{{item.stt_amanha}}</span>
+                </div>
+            </td>
+            <td *ngIf="(i === Iedit.index && 'stt_amanha' === Iedit.field)">
+                <div class="internal">
+                    <select [(ngModel)]="Ivalues.stt_amanha">
+                        <option value="" disabled></option>
+                        <option [value]="motivo.abrev" *ngFor="let motivo of motivos">{{motivo.abrev}}</option>
+                    </select>
+                    <img src="../../assets/check2.svg" alt="" (click)="saveChanges(item)">
+                </div>
+            </td>
+            <!--terceiro-->
+            <td *ngIf="Iedit.index !== i || Iedit.field !== 'defeitos'" (click)="editModeOn(i, 'defeitos', item)">
+                <div class="normal_row">
+                    <span>{{item.defeitos}}</span>
+                </div>
+            </td>
+            <td *ngIf="(i === Iedit.index && 'defeitos' === Iedit.field)">
+                <div class="internal">
+                    <input type="number" [(ngModel)]="Ivalues.defeitos">
+                    <img src="../../assets/check2.svg" alt="" (click)="saveChanges(item)">
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

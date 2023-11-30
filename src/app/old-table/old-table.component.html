@@ -1,0 +1,42 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2">Status</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>buscar a meta de 95%</th>
+            <th>hoje</th>
+            <th>amanhã</th>
+            <th>qualidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of myData; let i = index">
+            <td id="nome-column">{{item.nome}}</td>
+
+            <td>
+                <div class="normal_row">
+                    <span>{{item.stt_hoje}}</span>
+                </div>
+            </td>
+
+
+            <!--segundo-->
+            <td>
+                <div class="normal_row">
+                    <span>{{item.stt_amanha}}</span>
+                </div>
+            </td>
+
+            <!--terceiro-->
+            <td>
+                <div class="normal_row">
+                    <span>{{item.defeitos}}</span>
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
