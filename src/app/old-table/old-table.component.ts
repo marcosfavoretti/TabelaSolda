@@ -18,7 +18,7 @@ export class OldTableComponent {
   }
   ngOnInit() {
     this.route.params.subscribe(param => {
-      this.dayCounter.setInitialday(param['day'])
+      this.dayCounter.setInitialday(String(param['day']).replaceAll('-', "/"))
     })
     this.day_ref = this.dayCounter.current_day
     this.refreshTable()

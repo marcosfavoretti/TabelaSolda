@@ -12,6 +12,7 @@ export class TableSoldaOldTsService {
   }
 
   async getData(date: string): Promise<Itens[]> {
+    date = date.replaceAll('-', '/')
     const { data } = await axios.get(`http://${httpConfig.ip}/tabelasolda/${encodeURIComponent(date)}`)
     return this.castData(data)
   }

@@ -57,6 +57,7 @@ export class DayCounterService {
   }
 
   private changeRoute(param: string) {
+    param = param.replaceAll('/', '-')
     if (this.today === this.current_day) return this.router.navigate(['hoje'])
     return this.router.navigate(["/", param])
   }
